@@ -1,0 +1,36 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+.main-container{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 20px auto;
+    overflow-x: scroll;
+}
+.main-container h3{
+    margin-bottom: 8px;
+}
+.label-container{
+    width: 100%;
+    background-color: brown;
+    border: 1px solid black;
+    padding: 10px;
+    text-align: center;
+}
+.diagrama-container{
+    width: 100%;
+}
+.label-title{
+    font-size: 20px;
+}
+.proceso{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 30px;
+    border-radius: 30px;
+}
