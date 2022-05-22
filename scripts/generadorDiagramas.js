@@ -1,5 +1,5 @@
 
-function crearDiagramaGranntFCFS(procesos,intervalos){
+function crearDiagramaGranntFCFS_SJF(procesos,intervalos,tiempos){
     let container = document.createElement("div");
     container.classList.add("main-container")
     const diagramaContainer = document.createElement("div");
@@ -19,10 +19,11 @@ function crearDiagramaGranntFCFS(procesos,intervalos){
         diagramaContainer.appendChild(labelContainer);
     }
     let contLinea = 2;
+    let cont =0;
     for(let i=1;i<procesos+1;i++){
-        diagramaContainer.appendChild(crearProcesoFCFS(i,i+1,contLinea,contLinea+1,"Proceso " + i));
+        diagramaContainer.appendChild(crearProcesoFCFS_SJF(i,i+1,contLinea,contLinea+1,"Proceso " + i + " : "+ tiempos[cont] + "ms"));
         contLinea++;
-        console.log(i);
+        cont++;
     }
     const title = document.createElement("h3");
     title.textContent="Diagrama de Grannt";
@@ -32,7 +33,7 @@ function crearDiagramaGranntFCFS(procesos,intervalos){
     return container;
 }
 
-function crearProcesoFCFS(colInicio, colFinal, filInicio,filFinal,texto){
+function crearProcesoFCFS_SJF(colInicio, colFinal, filInicio,filFinal,texto){
     const proceso = document.createElement("div");
     const labelProceso = document.createElement("p");
     labelProceso.textContent=texto;

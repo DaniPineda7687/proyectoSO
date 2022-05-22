@@ -1,7 +1,5 @@
-const botonEnviarTiempos = document.createElement("button");
-const resultsContainer = document.createElement("div");
-resultsContainer.classList.add("results-container")
-function crearCantidadTiempos(numeroProcesos){
+const botonEnviarTiemposSJF = document.createElement("button");
+function crearCantidadTiemposSJF(numeroProcesos){
     const formularioTiempos = document.createElement("form");
     for(let i=0;i<numeroProcesos;i++){
         const inputTiempos = document.createElement("input");
@@ -11,15 +9,17 @@ function crearCantidadTiempos(numeroProcesos){
         inputTiempos.setAttribute("class","input-js-tiempos");
         formularioTiempos.appendChild(inputTiempos);
     }
-    botonEnviarTiempos.type="button";
-    botonEnviarTiempos.textContent="Enviar";
-    formularioTiempos.appendChild(botonEnviarTiempos);
-    botonEnviarTiempos.setAttribute("onclick","startAlgoritmoFCFS()");
+    botonEnviarTiemposSJF.type="button";
+    botonEnviarTiemposSJF.textContent="Enviar";
+    formularioTiempos.appendChild(botonEnviarTiemposSJF);
+    botonEnviarTiemposSJF.setAttribute("onclick","startAlgoritmoSJF()");
     return formularioTiempos;
 }
 
-function startAlgoritmoFCFS(){
-    botonEnviarTiempos.disabled=true;
+function startAlgoritmoSJF(){
+    const resultsContainer = document.createElement("div");
+    resultsContainer.classList.add("results-container")
+    botonEnviarTiemposSJF.disabled=true;
     let tiemposProcesosCompleto=[];
     let inputsTiempos = document.getElementsByClassName("input-js-tiempos");
     let numeroProcesos = parseInt(document.getElementById("numero-procesos").value);
@@ -27,6 +27,9 @@ function startAlgoritmoFCFS(){
     for(let i=0;i<inputsTiempos.length;i++){
         tiemposProcesosCompleto.push(parseFloat(inputsTiempos[i].value));
     }
+    tiemposProcesosCompleto.sort(function(a,b){
+        return a-b;
+    });
     let tiempoProcesosProm = Object.values(tiemposProcesosCompleto);
     let sumaParcial = 0;
     let etiquetasGrafica = [];
