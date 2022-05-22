@@ -10,7 +10,8 @@ function crearFormularioFCFS(){
     formContainer.classList.add("main-form");
     inputNumeroProcesos.placeholder="Digite el numero de procesos de la simulacion";
     inputNumeroProcesos.setAttribute("id","numero-procesos");
-    botonEnviarNumeroProcesos.setAttribute("type","submit");
+    inputNumeroProcesos.setAttribute("type","number");
+    botonEnviarNumeroProcesos.setAttribute("type","button");
     inputNumeroProcesos.required=true;
     botonEnviarNumeroProcesos.textContent="Enviar";
     botonEnviarNumeroProcesos.addEventListener("click",()=>{
