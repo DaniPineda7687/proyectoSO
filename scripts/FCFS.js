@@ -25,7 +25,7 @@ function startAlgoritmoFCFS(){
     let numeroProcesos = parseInt(document.getElementById("numero-procesos").value);
     
     for(let i=0;i<inputsTiempos.length;i++){
-        tiemposProcesosCompleto.push(parseInt(inputsTiempos[i].value));
+        tiemposProcesosCompleto.push(parseFloat(inputsTiempos[i].value));
     }
     let tiempoProcesosProm = Object.values(tiemposProcesosCompleto);
     let sumaParcial = 0;
