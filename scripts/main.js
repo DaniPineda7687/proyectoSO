@@ -75,5 +75,12 @@ function ejecutarAlgoritmos(){
     }else if(algoritmoSelect=="SJF"){
         crearFormularioSJF();
         botonTipoAlgoritmo.disabled = true;
+    }else if(algoritmoSelect=="Prioridad"){
+        procesamientoDatosPrioridad();
+        botonTipoAlgoritmo.disabled=true;
     }
+}
+
+function reloadPage(){
+    location.reload();
 }
